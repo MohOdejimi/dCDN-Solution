@@ -1,0 +1,21 @@
+{
+  "name": "dcdn-solution",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohOdejimi/dCDN-Solution.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MohOdejimi/dCDN-Solution/issues"
+  },
+  "homepage": "https://github.com/MohOdejimi/dCDN-Solution#readme"
+}
