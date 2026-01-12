@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import fs from 'fs';
+import fs  from 'fs';
+import { chunkFile } from './chunking.js'; 
 
 const program = new Command();
 
@@ -13,14 +14,13 @@ program
 program
     .command('upload <file>')
     .description('Upload a file to the dCDN network and get a CID')
-    .action((file) => {
+    .action((filePath) => {
         try {
-            if (!fs.existsSync(file)) {
+            if (!fs.existsSync(filePath)) {
                 console.error('File does not exist.');
                 process.exit(1);
             }
-            const fileMetaData = fs.statSync(file);
-            console.log(`File Size: ${fileMetaData.size} bytes`); 
+            const fileMetaData = fs.statSync(filePath);
             if (fileMetaData.size > 10 * 1024 * 1024 * 100) {
                 console.error('File size exceeds 100MB limit.');
                 process.exit(1);
@@ -29,9 +29,12 @@ program
                 console.error('The specified path is not a file.');
                 process.exit(1);
             }
+            chunkFile(filePath)
         } catch (error) {
             console.error('Error uploading file:', error);
         }
     });
 
 program.parse(process.argv);    
+
+

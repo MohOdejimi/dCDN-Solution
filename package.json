@@ -28,6 +28,7 @@
     "commander": "^14.0.2",
     "express": "^5.2.1",
     "fs": "^0.0.1-security",
+    "merkletreejs": "^0.6.0",
     "prettier": "^3.7.4"
   }
 }
